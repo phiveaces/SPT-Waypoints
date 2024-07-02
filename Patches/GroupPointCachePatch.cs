@@ -1,4 +1,4 @@
-﻿using Aki.Reflection.Patching;
+﻿using SPT.Reflection.Patching;
 using Comfort.Common;
 using EFT;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ namespace DrakiaXYZ.Waypoints.Patches
 
             var botGame = Singleton<IBotGame>.Instance;
             var data = botGame.BotsController.CoversData;
-
+            int id = 1;
             for (int i = 0; i < data.MaxX; i++)
             {
                 for (int j = 0; j < data.MaxY; j++)
@@ -39,7 +39,7 @@ namespace DrakiaXYZ.Waypoints.Patches
                         {
                             foreach (GroupPoint groupPoint in navGraphVoxelSimple.Points)
                             {
-                                CachedNavPoints.Add(groupPoint.CreateCustomNavigationPoint(0));
+                                CachedNavPoints.Add(groupPoint.CreateCustomNavigationPoint(id++));
                             }
                         }
                     }
@@ -48,7 +48,7 @@ namespace DrakiaXYZ.Waypoints.Patches
 
             foreach (GroupPoint groupPoint in data.AIManualPointsHolder.ManualPoints)
             {
-                CachedNavPoints.Add(groupPoint.CreateCustomNavigationPoint(0));
+                CachedNavPoints.Add(groupPoint.CreateCustomNavigationPoint(id++));
             }
         }
     }

@@ -35,4 +35,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.4.3.0")]
 [assembly: AssemblyFileVersion("1.4.3.0")]
-[assembly: TarkovVersion(29197)]
+[assembly: TarkovVersion(30626)]

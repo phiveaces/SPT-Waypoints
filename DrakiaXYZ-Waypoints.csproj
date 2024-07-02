@@ -35,14 +35,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\BepInEx\core\0Harmony.dll</HintPath>
     </Reference>
-    <Reference Include="aki-custom">
-      <HintPath>..\..\BepInEx\plugins\aki-custom.dll</HintPath>
+    <Reference Include="spt-custom">
+      <HintPath>..\..\BepInEx\plugins\spt\spt-custom.dll</HintPath>
     </Reference>
-    <Reference Include="Aki.Reflection">
-      <HintPath>..\..\EscapeFromTarkov_Data\Managed\Aki.Reflection.dll</HintPath>
+    <Reference Include="SPT.Reflection">
+      <HintPath>..\..\BepInEx\plugins\spt\spt-reflection.dll</HintPath>
     </Reference>
-    <Reference Include="aki_PrePatch">
-      <HintPath>..\..\BepInEx\patchers\aki_PrePatch.dll</HintPath>
+    <Reference Include="spt_PrePatch">
+      <HintPath>..\..\BepInEx\patchers\spt-prepatch.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\EscapeFromTarkov_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -146,6 +146,6 @@
     <PreBuildEvent>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File $(ProjectDir)\VersionChecker\setbuild.ps1</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "$(ProjectDir)\..\..\BepInEx\plugins\$(ProjectName)\$(TargetFileName)"</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetPath)" "$(ProjectDir)..\..\BepInEx\plugins\$(ProjectName)\$(TargetFileName)"</PostBuildEvent>
   </PropertyGroup>
 </Project>

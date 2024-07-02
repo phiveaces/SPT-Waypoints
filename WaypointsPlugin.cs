@@ -1,4 +1,4 @@
-﻿using Aki.Reflection.Patching;
+﻿using SPT.Reflection.Patching;
 using BepInEx;
 using DrakiaXYZ.Helpers;
 using DrakiaXYZ.Waypoints.Helpers;
@@ -83,10 +83,12 @@ namespace DrakiaXYZ.Waypoints
 
                 // Time the overall activate method
                 {
-                    var target = AccessTools.Method(typeof(BotOwner), nameof(BotOwner.method_10));
+                    var targetPre = AccessTools.Method(typeof(BotOwner), nameof(BotOwner.PreActivate));
+                    var targetPost = AccessTools.Method(typeof(BotOwner), nameof(BotOwner.PostActivate));
                     var prefix = new HarmonyMethod(typeof(PerfTimingPatch).GetMethod("PatchPrefix"));
                     var postfix = new HarmonyMethod(typeof(PerfTimingPatch).GetMethod("PatchPostfix"));
-                    harmony.Patch(target, prefix, postfix);
+                    harmony.Patch(targetPre, prefix);
+                    harmony.Patch(targetPost, postfix);
                 }
             }
 
